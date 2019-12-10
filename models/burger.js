@@ -7,17 +7,14 @@ var burger = {
     });
   },
   
-  create: function(cols, vals, cb) {
-    orm.create("menu", cols, vals, function(res) {
-      cb(res);
-    });
+  create: function(name, cb) {
+    orm.create("menu", name, cb)
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("menu", objColVals, condition, function(res) {
-      cb(res);
-    });
+  
+  update: function(id, cb) {
+    orm.update("menu", id, cb)
   }
 };
 
-
+//send to controller
 module.exports = burger;

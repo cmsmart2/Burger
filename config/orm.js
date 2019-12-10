@@ -1,6 +1,5 @@
 const db = require("./connection.js");
 
-
 const orm = {
     all: function(tableInput, cb) {
       let queryString = "SELECT * FROM " + tableInput + ";";
@@ -33,5 +32,5 @@ const orm = {
     }
   };
   
- 
+ //send to models
   module.exports = orm;
