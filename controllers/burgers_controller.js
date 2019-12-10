@@ -17,7 +17,6 @@ router.get("/", function(req, res) {
     ], [
       req.body.name, req.body.devoured
     ], function(result) {
-      // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
   });
