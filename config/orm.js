@@ -12,7 +12,7 @@ const orm = {
       });
     },
     create: function(table, val, cb) {
-      var queryString = "INSERT INTO " + table + "(burger_name) VALUES ('"+val+"');"
+      let queryString = "INSERT INTO " + table + "(burger_name) VALUES ('"+val+"');"
       db.query(queryString, function(err, result) {
         if (err) {
           throw err;
