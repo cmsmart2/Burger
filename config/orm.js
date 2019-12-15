@@ -1,8 +1,8 @@
 const db = require("./connection.js");
 
 const orm = {
-    all: function(tableInput, cb) {
-      let queryString = "SELECT * FROM " + tableInput + ";";
+    all: function(table, cb) {
+      let queryString = "SELECT * FROM " +table+ ";";
       db.query(queryString, function(err, result) {
         if (err) {
           throw err;
@@ -11,7 +11,7 @@ const orm = {
       });
     },
     create: function(table, val, cb) {
-      let queryString = "INSERT INTO " + table + "(burger_name) VALUES ('"+val+"');"
+      let queryString = "INSERT INTO " +table+ " (burger_name) VALUES ('"+val+"');"
       db.query(queryString, function(err, result) {
         if (err) {
           throw err;
@@ -20,13 +20,12 @@ const orm = {
       });
     },
     
-    update: function(table, condition, cb) {
-      let queryString = 'UPDATE'+table + 'SET devoured=true WHERE id= '+condition+ ';'
+    update: function(table, id, cb) {
+      let queryString = "UPDATE " +table+ " SET devoured=true WHERE id= "+id+ ";"
       db.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }
-  
         cb(result);
       });
     }

@@ -12,15 +12,18 @@ router.get("/", function(_req, res) {
     });
   });
   
-  router.post("/api/burgers", function(req, res) {
+  router.post("/menu/create", function(req, res) {
     burger.create(req.body.burger_name, function(result){
-      console.log(result)
+      console.log(result);
+      res.redirect("/");
     });
   });
   
-  router.put("/api/burgers/devoured", function(req, res) {
-    burger.update(req.body.burger_id, function(result){
-      console.log(result)
+  router.put("/menu/update", function(req, res) {
+    console.log(req.body.menu_id)
+    burger.update(req.body.id, function(result){
+      console.log(result);
+      res.redirect("/");
     });
   });
   
