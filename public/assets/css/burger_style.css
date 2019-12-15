@@ -1,2 +1,11 @@
-
-  
+img {
+    width: 250px;
+    height: 300;
+  }
+body {
+    background-image: url(/assets/img/EAT.jfif);
+    color: whitesmoke;
+    margin: auto;
+    width: 50%;
+    font-family: 'Roboto Slab', serif;
+}

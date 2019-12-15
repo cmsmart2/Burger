@@ -3,37 +3,34 @@
     <div class="col text-center">
       <h2>It's time to Eat da Burger!</h2>
       </div>
+      <img src="/assets/img/burger.webp" alt="Burger">
   <div class="row">   
     <div class="col text-center">
       <ul>
         {{#each burgers}}
           {{#unless devoured}}
-          <div>{{id}} {{burger_name}}
-            </div>
+            <div>{{burger_name}}</div>
           <div class="col text-center">
             <form method="PUT" action="/menu/update">
-            <input type="hidden" name="menu_id" value={{this.id}}>
-            <button type="submit" class="btn btn-default" id="change-devour" data-id=""="{{id}}"> Devour!</button>
+              <input type="hidden" name="menu_id" value={{this.id}}>
+              <button type="submit" class="btn btn-default" id="change-devour" data-id=""="{{id}}"> Devour!</button>
               </form>
             </div>
-          {{/unless}}
-        {{/each}}
+            {{/unless}}
+          {{/each}}
         </ul>
-      </div>
-    </div> 
-  <div class="row">
+      </div> 
     <div class="col text-center">
       <h2>Devoured Burgers!</h2>
         <ul>
           {{#each burgers}}
             {{#if devoured}}
-            <div>{{id}} {{burger_name}}</div>
+              <div>{{burger_name}}</div>
             {{/if}}
           {{/each}}
           </ul>
       </div>
     </div>
-  </div>
   <div class="row">
     <div class="col text-center">
       <h2>Create Your own Burger</h2>
