@@ -19,11 +19,10 @@ router.get("/", function(_req, res) {
     });
   });
   
-  router.put("/menu/update", function(req, res) {
-    console.log(req.body.menu_id)
-    burger.update(req.body.id, function(result){
+  router.put("/menu/update/:id", function(req, res) {
+    burger.update(req.params.id, function(result){
       console.log(result);
-      res.redirect("/");
+      res.sendStatus(200);
     });
   });
   

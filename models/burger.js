@@ -12,7 +12,10 @@ var burger = {
   },
   
   update: function(id, cb) {
-    orm.update("menu", id, cb)
+    var condition = "id=" + id;
+    orm.update("menu", {
+      devoured: true
+    }, condition, cb)
   }
 };
 

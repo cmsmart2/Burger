@@ -1,5 +1,13 @@
 const db = require("./connection.js");
 
+function objToSql(ob) {
+  var arr = [];
+  for (var key in ob) {
+    arr.push(key + "=" + ob[key]);
+  }
+  return arr.toString();
+}
+
 const orm = {
     all: function(table, cb) {
       let queryString = "SELECT * FROM " +table+ ";";
@@ -20,8 +28,13 @@ const orm = {
       });
     },
     
-    update: function(table, id, cb) {
-      let queryString = "UPDATE " +table+ " SET devoured=true WHERE id= "+id+ ";"
+    update: function(table, objColVals, condition, cb) {
+      let queryString = "UPDATE " + table;
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+       
       db.query(queryString, function(err, result) {
         if (err) {
           throw err;

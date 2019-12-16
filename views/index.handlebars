@@ -11,9 +11,9 @@
           {{#unless devoured}}
             <div>{{burger_name}}</div>
           <div class="col text-center">
-            <form method="PUT" action="/menu/update">
-              <input type="hidden" name="menu_id" value={{this.id}}>
-              <button type="submit" class="btn btn-default" id="change-devour" data-id=""="{{id}}"> Devour!</button>
+            <form class="devour">
+              <input type="hidden" class="id" value={{this.id}}>
+              <button type="submit"> Devour!</button>
               </form>
             </div>
             {{/unless}}
@@ -35,7 +35,7 @@
     <div class="col text-center">
       <h2>Create Your own Burger</h2>
       <form action= "/menu/create" method= "POST">
-        <input type="text" name="burger_name" class="form-control" value="">
+        <input type="text" name="burger_name" class="name" value="">
         <button type="submit" class="btn btn-primary" id="create-button">Add Burger!</button>
         </form>
       </div>
